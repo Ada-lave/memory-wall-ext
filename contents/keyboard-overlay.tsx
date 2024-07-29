@@ -70,7 +70,7 @@ export const getOverlayAnchor: PlasmoGetOverlayAnchor = async () =>
   document.querySelector(`input`)
 
 const KeybordOverlay = () => {
-  const [displayKeyboard, setDisplay] = useState("flex")
+  const [displayKeyboard, setDisplay] = useState("none")
   const inputNaroda = document.querySelector("#q")
   inputNaroda.addEventListener('click', () => {
     setDisplay("flex")
