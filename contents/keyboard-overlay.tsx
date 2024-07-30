@@ -1,8 +1,9 @@
 import type {
   PlasmoCSConfig,
-  PlasmoGetOverlayAnchor,
+  PlasmoGetInlineAnchor,
   PlasmoGetStyle,
-  PlasmoWatchOverlayAnchor
+  PlasmoWatchOverlayAnchor,
+  PlasmoGetRootContainer 
 } from "plasmo"
 
 import Keybord from 'react-simple-keyboard'
@@ -66,21 +67,42 @@ export const ResizeKeyboard = () => {
   console.log("RESIZED")
 }
 
-export const getOverlayAnchor: PlasmoGetOverlayAnchor = async () =>
-  document.querySelector(`input`)
+export const getInlineAnchor: PlasmoGetInlineAnchor = async () => {
+  const anchors = document.querySelector(`#q`)
+  return anchors
+}
 
 const KeybordOverlay = () => {
   const [displayKeyboard, setDisplay] = useState("none")
-  const inputNaroda = document.querySelector("#q")
-  inputNaroda.addEventListener('click', () => {
-    setDisplay("flex")
-    console.log(displayKeyboard)
+
+  const inputNaroda = document.querySelector("html")
+
+  inputNaroda.addEventListener('click',async (e:any) => {
+    const el = await getInlineAnchor()
+    const plasmoContainer = await document.querySelector('plasmo-csui')
+    if(e.composedPath().includes(el)) {
+      setDisplay("flex")
+    } else { 
+      let arr = await e.composedPath().forEach(async (val: Element) =>  {
+        let classButton = await val.classList?.contains('hg-button')
+        let classStandart = await val.classList?.contains('hg-standardBtn')
+        if( classButton || classStandart ) {
+          setDisplay("flex")
+          return true
+        } 
+      })
+      if (arr) {
+        setDisplay("flex")
+      } else {
+        setDisplay("none")
+      }
+    }
   })
 
   return (
     <div
+      className="keyboard-container-plasmo"
       style={{
-        top: "50px",
         position: "absolute",
         display: displayKeyboard
       }}>
