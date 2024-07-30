@@ -8,8 +8,8 @@ import type {
 
 import Keybord from 'react-simple-keyboard'
 import  styleText from 'data-text:react-simple-keyboard/build/css/index.css'
-import keyboardStyle from 'data-text:./keyboard.css'
-import { useEffect, useState } from "react"
+import keyboardStyle from 'data-text:../styles/keyboard.css'
+import { useState } from "react"
 
 export const config: PlasmoCSConfig = {
   matches: ["https://pamyat-naroda.ru/*"]
@@ -73,6 +73,7 @@ export const getInlineAnchor: PlasmoGetInlineAnchor = async () => {
 }
 
 const KeybordOverlay = () => {
+
   const [displayKeyboard, setDisplay] = useState("none")
 
   const inputNaroda = document.querySelector("html")
