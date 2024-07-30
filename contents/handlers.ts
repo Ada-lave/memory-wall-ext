@@ -1,4 +1,6 @@
 import type { PlasmoCSConfig } from "plasmo"
+import TimerSetting from "~config/timerSetting"
+import deleteUnusedELements from "~utils/deleteElements"
 import NavigationHandler from "~utils/navigationHandler"
 import Timer from "~utils/timer"
 
@@ -13,13 +15,14 @@ function initNavigationHandler() {
     navigationHandler.init()
 }
 
-function initTimer() {
+async function initTimer() {
     let curUrl: string = document.location.href
-
+    let settings = new TimerSetting()
+    console.log("Initial timer time: ", await settings.getDuration())
     if (curUrl.includes("https://pamyat-naroda.ru")) {
         const timer: Timer = new Timer(() => {
             console.log("timer end")
-        }, 4000)
+        }, await settings.getDuration())
 
         timer.start()
         document.addEventListener('click', () => {
@@ -32,3 +35,4 @@ function initTimer() {
 }
 
 initTimer()
+deleteUnusedELements()

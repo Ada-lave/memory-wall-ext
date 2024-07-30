@@ -15,12 +15,18 @@ export const config: PlasmoCSConfig = {
   matches: ["https://pamyat-naroda.ru/*"]
 }
 
-export const onChange = (input) => {
+const onChange = (input) => {
   const inputNaroda = document.querySelector("#q")
   inputNaroda.value = input
   console.log(input)
 }
 
+const getSizeOfInputNaroda = () => {
+  const inputNaroda = document.querySelector("input.field-text")
+  const keyboard = document.querySelector("div.simple-keyboard")
+  console.log(keyboard)
+  return inputNaroda.clientWidth
+}
 
 
 
@@ -77,7 +83,6 @@ const KeybordOverlay = () => {
   const [displayKeyboard, setDisplay] = useState("none")
 
   const inputNaroda = document.querySelector("html")
-
   inputNaroda.addEventListener('click',async (e:any) => {
     const el = await getInlineAnchor()
     const plasmoContainer = await document.querySelector('plasmo-csui')

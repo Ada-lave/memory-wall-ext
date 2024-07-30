@@ -23,20 +23,6 @@ export const getOverlayAnchor: PlasmoGetOverlayAnchor = async () =>
   document.querySelector(`div.container`)
 
 const BackButtonOverlay = () => {
-  useEffect(() => {
-
-    let headerBanner = document.querySelector("div.header__banner")
-    headerBanner.remove()
-
-    let moreSeacrhButton = document.querySelector("div.button-more-search")
-    moreSeacrhButton.remove()
-
-    let questionLink = document.querySelector("a.btn-how-search")
-    questionLink.remove()
-
-    // let miniKeyboard = document.querySelector('img.keyboardInputInitiator')
-    // miniKeyboard.remove()
-  })
 
   let display = "none"
   const goToMemoryWall = () => {
