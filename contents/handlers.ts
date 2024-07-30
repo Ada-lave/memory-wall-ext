@@ -1,10 +1,12 @@
+import type { PlasmoCSConfig } from "plasmo"
 import NavigationHandler from "~utils/navigationHandler"
 import Timer from "~utils/timer"
 
 export {}
 
-console.log("timer init")
-
+export const config: PlasmoCSConfig = {
+    matches: ["https://pamyat-naroda.ru/*"]
+  }
 
 function initNavigationHandler() {
     let navigationHandler: NavigationHandler = new NavigationHandler
@@ -15,14 +17,18 @@ function initTimer() {
     let curUrl: string = document.location.href
 
     if (curUrl.includes("https://pamyat-naroda.ru")) {
-        let body: HTMLBodyElement = document.querySelector("body")
         const timer: Timer = new Timer(() => {
             console.log("timer end")
-        }, 2000)
+        }, 4000)
 
         timer.start()
-        body.addEventListener("click" , () => {
+        document.addEventListener('click', () => {
             timer.restart()
         })  
+        document.addEventListener('scroll', () => {
+            timer.restart()
+        })
     }
 }
+
+initTimer()

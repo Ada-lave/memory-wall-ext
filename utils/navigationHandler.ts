@@ -1,3 +1,5 @@
+import type { PlasmoCSConfig } from "plasmo"
+
 class NavigationHandler {
     init() {
         let currPath = document.location.href
@@ -6,5 +8,9 @@ class NavigationHandler {
         } 
     }
 }  
+
+export const config: PlasmoCSConfig = {
+    matches: ["https://pamyat-naroda.ru/*"]
+}
 
 export default NavigationHandler

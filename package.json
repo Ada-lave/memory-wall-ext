@@ -1,13 +1,8 @@
 {
-  "name": "with-content-scripts-ui",
-  "displayName": "With content scripts ui",
+  "name": "memory-wall-browser-extesion",
+  "displayName": "MemoryWall browser extesion",
   "version": "0.0.1",
-  "description": "This example demonstrates how to render a React component using content scripts",
-  "author": "Plasmo Corp. <foss@plasmo.com>",
-  "contributors": [
-    "louisgv",
-    "vinne"
-  ],
+  "author": "Polisoft",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
@@ -30,7 +25,7 @@
   },
   "manifest": {
     "permissions": [
-      "tabs"
+      "storage"
     ]
   }
 }

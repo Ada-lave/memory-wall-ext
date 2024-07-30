@@ -1,3 +1,5 @@
+import type { PlasmoCSConfig } from "plasmo"
+
 class Timer {
     private timeoutId: NodeJS.Timeout | undefined
 
@@ -17,7 +19,12 @@ class Timer {
     restart() {
         this.stop()
         this.start()
+        console.log("Timer restarted")
     }
 }
+
+export const config: PlasmoCSConfig = {
+    matches: ["https://pamyat-naroda.ru/*"]
+  }
 
 export default Timer
