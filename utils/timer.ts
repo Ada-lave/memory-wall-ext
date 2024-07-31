@@ -2,6 +2,7 @@ import type { PlasmoCSConfig } from "plasmo"
 
 class Timer {
     private timeoutId: NodeJS.Timeout | undefined
+    public timerEnd: boolean = false
 
     constructor(private callback: () => void, private delay: number) {}
 

@@ -6,18 +6,20 @@ import type {
 
 import  styleText from 'data-text:react-simple-keyboard/build/css/index.css'
 import { useEffect } from "react"
+import cssText from "data-text:~style.css"
+
 
 export const config: PlasmoCSConfig = {
   matches: ["https://pamyat-naroda.ru/*"]
 }
-
-
-
-export const getStyle: PlasmoGetStyle = () => {
+ 
+export const getStyle = () => {
   const style = document.createElement("style")
-  style.textContent = styleText
+  style.textContent = cssText
   return style
 }
+
+
 
 export const getOverlayAnchor: PlasmoGetOverlayAnchor = async () =>
   document.querySelector(`div.container`)
@@ -38,9 +40,8 @@ const BackButtonOverlay = () => {
     height: "100px",
     display: display,
     position: "absolute",
-
-    background: "red"
   }}
+  className="bg-red-500"
   onClick={goToMemoryWall}>
     
   </div>

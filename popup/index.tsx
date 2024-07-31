@@ -29,7 +29,7 @@ function PopupIndex() {
     }
 
     const handleState = (event) => {
-        setRedirectState(!event.target.value)
+        setRedirectState(!redirectState)
     }
 
     const saveSettings = () => {

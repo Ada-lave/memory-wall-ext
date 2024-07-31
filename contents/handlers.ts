@@ -1,6 +1,7 @@
 import type { PlasmoCSConfig } from "plasmo"
 import TimerSetting from "~config/timerSetting"
-import deleteUnusedELements from "~utils/deleteElements"
+import { addOurLinkForGoHome } from "~utils/addElements"
+import deleteUnusedELements, { deleteHeroCardActionPanel, deleteReportButton, deleteUnusedNavagationLinks } from "~utils/deleteElements"
 import NavigationHandler from "~utils/navigationHandler"
 import Timer from "~utils/timer"
 
@@ -22,17 +23,33 @@ async function initTimer() {
     if (curUrl.includes("https://pamyat-naroda.ru")) {
         const timer: Timer = new Timer(() => {
             console.log("timer end")
+            timer.timerEnd = true
         }, await settings.getDuration())
 
         timer.start()
+
         document.addEventListener('click', () => {
-            timer.restart()
+            if (!timer.timerEnd) {
+                timer.restart()
+            }
         })  
         document.addEventListener('scroll', () => {
-            timer.restart()
+            if (!timer.timerEnd) {
+                timer.restart()
+            }
         })
     }
 }
 
+// Инициализация скриптов
 initTimer()
+initNavigationHandler()
+
+// Удаление элементов которые не нужны на странице
 deleteUnusedELements()
+deleteUnusedNavagationLinks()
+deleteHeroCardActionPanel()
+deleteReportButton()
+
+// Добавление собственных элементов
+addOurLinkForGoHome()
