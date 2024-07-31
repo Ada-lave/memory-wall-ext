@@ -22,7 +22,7 @@ async function initTimer() {
     console.log("Initial timer time: ", await settings.getDuration())
     if (curUrl.includes("https://pamyat-naroda.ru")) {
         const timer: Timer = new Timer(() => {
-            console.log("timer end")
+            document.location.href = "https://mlcity.ru"
             timer.timerEnd = true
         }, await settings.getDuration())
 

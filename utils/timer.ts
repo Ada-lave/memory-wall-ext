@@ -20,7 +20,6 @@ class Timer {
     restart() {
         this.stop()
         this.start()
-        console.log("Timer restarted")
     }
 }
 
