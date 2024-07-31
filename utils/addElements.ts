@@ -1,15 +1,17 @@
 export function addOurLinkForGoHome() {
-    const contentSection = document.querySelector("div.heroes-list-wrap")
+    const contentSection = document.querySelector("div.container")
     if (contentSection) {
         const backButton = document.createElement("div")
         backButton.addEventListener("click", () => {
             window.location.href = "https://mlcity.ru"
         })
-        backButton.textContent = "Вернуться назад"
-        let classList = "bg-red-600 text-2xl rounded-lg p-4 text-white text-center hover:cursor-pointer m-4".split(" ")
+        backButton.textContent = "Вернуться на стену памяти"
+        backButton.style.width = "100%"
+        let classList = "bg-red-600 text-2xl rounded-lg font-bold px-[16px] py-4 m-2 mb-4 text-white text-center hover:cursor-pointer".split(" ")
         classList.forEach(el => {
             backButton.classList.add(el)
         })
-        contentSection.insertBefore(backButton, contentSection.childNodes[2])
+        console.log(contentSection.childNodes)
+        contentSection.insertBefore(backButton, contentSection.firstChild)
     }
 }

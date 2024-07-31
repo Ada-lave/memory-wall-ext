@@ -43,4 +43,18 @@ export function deleteReportButton() {
     }
 }
 
+export function deleteSidebar() {
+    const sideBar = document.querySelector("div.sidebar-button")
+    if (sideBar) {
+        sideBar.remove()
+    }
+}
+
+export function deleteHeader() {
+    const header = document.querySelector("div.header")
+    if(header) {
+        header.remove()
+    }
+}
+
 export default deleteUnusedELements
