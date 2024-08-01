@@ -2,8 +2,6 @@ import type {
   PlasmoCSConfig,
   PlasmoGetInlineAnchor,
   PlasmoGetStyle,
-  PlasmoWatchOverlayAnchor,
-  PlasmoGetRootContainer 
 } from "plasmo"
 
 import Keybord from 'react-simple-keyboard'
@@ -37,15 +35,6 @@ export const getStyle: PlasmoGetStyle = () => {
   return style
 }
 
-export const watchOverlayAnchor: PlasmoWatchOverlayAnchor = (
-  updatePosition
-) => {
-  const interval = setInterval(() => {
-    updatePosition()
-  }, 420)
-
-  return () => clearInterval(interval)
-}
 
 let layout = {
   default: [
@@ -82,27 +71,10 @@ const KeybordOverlay = () => {
 
   const [displayKeyboard, setDisplay] = useState("none")
 
-  const inputNaroda = document.querySelector("html")
+  const inputNaroda = document.querySelector("#q")
   inputNaroda.addEventListener('click',async (e:any) => {
-    const el = await getInlineAnchor()
-    const plasmoContainer = await document.querySelector('plasmo-csui')
-    if(e.composedPath().includes(el)) {
-      setDisplay("flex")
-    } else { 
-      let arr = await e.composedPath().forEach(async (val: Element) =>  {
-        let classButton = await val.classList?.contains('hg-button')
-        let classStandart = await val.classList?.contains('hg-standardBtn')
-        if( classButton || classStandart ) {
-          setDisplay("flex")
-          return true
-        } 
-      })
-      if (arr) {
-        setDisplay("flex")
-      } else {
-        setDisplay("none")
-      }
-    }
+    console.log("click")
+    setDisplay("flex")
   })
 
   return (
