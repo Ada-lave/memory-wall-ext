@@ -7,9 +7,6 @@ import Timer from "~utils/timer"
 
 export {}
 
-export const config: PlasmoCSConfig = {
-    matches: ["https://pamyat-naroda.ru/*"]
-  }
 
 function initNavigationHandler() {
     let navigationHandler: NavigationHandler = new NavigationHandler

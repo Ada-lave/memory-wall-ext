@@ -16,16 +16,7 @@ export const config: PlasmoCSConfig = {
 const onChange = (input) => {
   const inputNaroda = document.querySelector("#q")
   inputNaroda.value = input
-  console.log(input)
 }
-
-const getSizeOfInputNaroda = () => {
-  const inputNaroda = document.querySelector("input.field-text")
-  const keyboard = document.querySelector("div.simple-keyboard")
-  console.log(keyboard)
-  return inputNaroda.clientWidth
-}
-
 
 
 export const getStyle: PlasmoGetStyle = () => {
@@ -58,9 +49,6 @@ let display = {
   "{default}": "ABC",
 }
 
-export const ResizeKeyboard = () => {
-  console.log("RESIZED")
-}
 
 export const getInlineAnchor: PlasmoGetInlineAnchor = async () => {
   const anchors = document.querySelector(`#q`)

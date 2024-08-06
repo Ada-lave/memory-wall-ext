@@ -12,8 +12,4 @@ class NavigationHandler {
     }
 }  
 
-export const config: PlasmoCSConfig = {
-    matches: ["https://pamyat-naroda.ru/*"]
-}
-
 export default NavigationHandler

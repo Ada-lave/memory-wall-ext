@@ -1,4 +1,5 @@
 
+import type { PlasmoCSConfig } from "plasmo"
 import "../style.css"
 
 
@@ -56,5 +57,10 @@ export function deleteHeader() {
         header.remove()
     }
 }
+
+export const config: PlasmoCSConfig = {
+    matches: ["https://pamyat-naroda.ru/*"]
+}
+
 
 export default deleteUnusedELements

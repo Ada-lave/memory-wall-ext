@@ -1,3 +1,5 @@
+import type { PlasmoCSConfig } from "plasmo"
+
 export function addOurLinkForGoHome() {
     const contentSection = document.querySelector("div.container")
     if (contentSection) {
@@ -13,4 +15,8 @@ export function addOurLinkForGoHome() {
         })
         contentSection.insertBefore(backButton, contentSection.firstChild)
     }
+}
+
+export const config: PlasmoCSConfig = {
+    matches: ["https://pamyat-naroda.ru/*"]
 }

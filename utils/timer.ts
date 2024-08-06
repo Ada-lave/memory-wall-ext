@@ -25,6 +25,6 @@ class Timer {
 
 export const config: PlasmoCSConfig = {
     matches: ["https://pamyat-naroda.ru/*"]
-  }
+}
 
 export default Timer
