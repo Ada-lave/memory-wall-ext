@@ -1,16 +1,13 @@
 import type { PlasmoCSConfig } from "plasmo"
 import TimerSetting from "~config/timerSetting"
 import { addOurLinkForGoHome } from "~utils/addElements"
-import deleteUnusedELements, { deleteHeader, deleteHeroCardActionPanel, deleteReportButton, deleteSidebar, deleteUnusedNavagationLinks } from "~utils/deleteElements"
-import NavigationHandler from "~utils/navigationHandler"
+import deleteUnusedELements, { deleteFavoriteLinks, deleteHeader, deleteHeroCardActionPanel, deleteReportButton, deleteSidebar, deleteUnusedNavagationLinks, waitAndDeleteElement } from "~utils/deleteElements"
 import Timer from "~utils/timer"
 
 export {}
 
-
-function initNavigationHandler() {
-    let navigationHandler: NavigationHandler = new NavigationHandler
-    navigationHandler.init()
+export const config: PlasmoCSConfig = {
+    matches: ["https://pamyat-naroda.ru/*"]
 }
 
 async function initTimer() {
@@ -40,7 +37,6 @@ async function initTimer() {
 
 // Инициализация скриптов
 initTimer()
-initNavigationHandler()
 
 // Удаление элементов которые не нужны на странице
 deleteUnusedELements()
@@ -49,6 +45,8 @@ deleteHeroCardActionPanel()
 deleteReportButton()
 deleteHeader()
 deleteSidebar()
+deleteFavoriteLinks()
+waitAndDeleteElement("img.keyboardInputInitiator")
 
 // Добавление собственных элементов
 addOurLinkForGoHome()

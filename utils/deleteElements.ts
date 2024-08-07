@@ -58,9 +58,53 @@ export function deleteHeader() {
     }
 }
 
+export function deleteFavoriteLinks() {
+    const targetNode = document.querySelector("div.heroes-list")
+    const observer = new MutationObserver(mutationList => {
+        for (const mutation of mutationList) {
+            if (mutation.type == "childList") {
+                mutation.addedNodes.forEach(node => {
+                    node.childNodes.forEach(el => {
+                        if (el.nodeType == 1) {
+                            if (el.classList.contains("heroes-list-item-name-wrap")) {
+                                el.childNodes.forEach(el => {
+                                   
+                                    if (el.nodeType == 1) {
+                                        if (el.classList.contains("heroes-ico-archive")){
+                                            el.remove()
+                                        }
+                                    }
+                                })
+
+                            }
+                        }
+                    })
+                })
+            }
+        }
+    })
+
+    const conf = {
+        childList: true
+    }
+
+    observer.observe(targetNode, conf)
+}
+
 export const config: PlasmoCSConfig = {
     matches: ["https://pamyat-naroda.ru/*"]
 }
+
+export function waitAndDeleteElement(selector) {
+    const interval = setInterval(() => {
+      const element = document.querySelector(selector);
+      if (element) {
+        clearInterval(interval);
+        element.remove();
+      }
+    }, 100); // Проверка каждые 100 мс
+  }
+  
 
 
 export default deleteUnusedELements

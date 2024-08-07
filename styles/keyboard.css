@@ -1,3 +1,4 @@
 .simple-keyboard {
     width: 615px;
+    z-index: 0;
 }

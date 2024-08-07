@@ -4,8 +4,6 @@ import type {
   PlasmoGetStyle,
 } from "plasmo"
 
-import  styleText from 'data-text:react-simple-keyboard/build/css/index.css'
-import { useEffect } from "react"
 import cssText from "data-text:~style.css"
 
 
