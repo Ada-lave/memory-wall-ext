@@ -105,6 +105,8 @@ export function waitAndDeleteElement(selector) {
     }, 100); // Проверка каждые 100 мс
   }
   
-
-
+export function deleteFooter() {
+    let el = document.querySelectorAll("div.footer-wrap-list")
+    el.forEach(el => el.remove())
+}
 export default deleteUnusedELements
