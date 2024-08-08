@@ -1,7 +1,7 @@
 {
   "name": "memory-wall-browser-extesion",
   "displayName": "MemoryWall browser extesion",
-  "version": "0.8.5.2",
+  "version": "0.8.6",
   "author": "Polisoft",
   "scripts": {
     "dev": "plasmo dev",

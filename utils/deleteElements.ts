@@ -30,6 +30,22 @@ export function deleteVideoBanner() {
     }
 }
 
+export function deleteAuthFrame() {
+    const observer = new MutationObserver(() => {
+        const authFrame = document.querySelector('iframe[name="authFrame"]')
+        if (authFrame) {
+            authFrame.remove()
+        }
+    })
+
+    const conf = {
+        childList: true,
+        subtree: true
+    }
+
+    observer.observe(document.body, conf)
+}
+
 export function deleteUnusedELements() {
     if (document.location.href.includes("https://pamyat-naroda.ru/heroes/")) {
         let moreSeacrhButton = document.querySelector("div.button-more-search")
