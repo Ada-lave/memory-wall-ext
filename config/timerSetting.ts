@@ -6,7 +6,7 @@ class TimerSetting {
     async getDuration(): Promise<number> {
         let duration = await this.timerStorage.getTimerTime()
         if (duration == undefined) {
-            return 300000
+            return 120000
         }
         return duration
     }
