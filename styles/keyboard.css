@@ -1,4 +1,8 @@
 .simple-keyboard {
     width: 615px;
     z-index: 0;
+
+    .hg-button {
+        font-size: 1.4rem;
+    }
 }
