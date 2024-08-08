@@ -1,3 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.test {
+    background-color: red;
+    z-index: 10;
+    position: relative;
+    font-size: 1.5vh;
+    margin-left: 35%;
+    display: flex;
+    border-radius: 6px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 30%;
+    min-width: 30vh;
+    margin-bottom: 4rem;
+    font-weight: bold;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    min-height: 4vh;
+}

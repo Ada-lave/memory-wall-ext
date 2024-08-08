@@ -2,6 +2,7 @@ import type { PlasmoCSConfig } from "plasmo"
 
 export function addOurLinkForGoHome() {
     const contentSection = document.querySelector("div.container")
+    console.log(contentSection)
     if (contentSection) {
         // const textDiv = document.createElement("div")
         // textDiv.textContent = "Никто не забыт, ничто не забыто"
@@ -24,8 +25,8 @@ function makeBackButton() {
         window.location.href = "https://mlcity.ru"
     })
     backButton.textContent = "Вернуться на стену памяти Заречного"
-    backButton.style.width = "100%"
-    let classList = "bg-red-600 text-2xl rounded-lg font-bold px-[16px] py-6 mt-[35%] mb-4 text-white text-center hover:cursor-pointer".split(" ")
+    backButton.style.width = "40%"
+    let classList = "test".split(" ")
     classList.forEach(el => {
         backButton.classList.add(el)
     })

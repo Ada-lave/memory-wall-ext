@@ -2,14 +2,40 @@
 import type { PlasmoCSConfig } from "plasmo"
 import "../style.css"
 
+export const config: PlasmoCSConfig = {
+    matches: ["https://pamyat-naroda.ru/*"]
+}
+
+export function deleteFavoriteButton() {
+    let favoriteButtons = document.querySelectorAll("a.customizable_to_archive")
+    favoriteButtons.forEach(el => {
+        el.remove()
+    })
+
+    let favoriteButtons2 = document.querySelectorAll("a.to-archive")
+    favoriteButtons2.forEach(el => {
+        el.remove()
+    })
+
+    let favoriteButtons3 = document.querySelectorAll("div.view_this_to_archive")
+    favoriteButtons3.forEach(el => {
+        el.remove()
+    })
+}
+
+export function deleteVideoBanner() {
+    let headerBanner = document.querySelector("div.header__banner")
+    if (headerBanner) {
+        headerBanner.remove()
+    }
+}
 
 export function deleteUnusedELements() {
     if (document.location.href.includes("https://pamyat-naroda.ru/heroes/")) {
-        let headerBanner = document.querySelector("div.header__banner")
         let moreSeacrhButton = document.querySelector("div.button-more-search")
         let questionLink = document.querySelector("a.btn-how-search")
 
-        let itemsForRemove = [headerBanner, moreSeacrhButton, questionLink]
+        let itemsForRemove = [moreSeacrhButton, questionLink]
         itemsForRemove.forEach((el) => {
             if (el) {
                 el.remove()
@@ -53,13 +79,16 @@ export function deleteSidebar() {
 
 export function deleteHeader() {
     const header = document.querySelector("div.header")
-    if(header) {
+    if (header) {
         header.remove()
     }
 }
 
 export function deleteFavoriteLinks() {
     const targetNode = document.querySelector("div.heroes-list")
+    if (!targetNode) {
+        return
+    }
     const observer = new MutationObserver(mutationList => {
         for (const mutation of mutationList) {
             if (mutation.type == "childList") {
@@ -68,9 +97,9 @@ export function deleteFavoriteLinks() {
                         if (el.nodeType == 1) {
                             if (el.classList.contains("heroes-list-item-name-wrap")) {
                                 el.childNodes.forEach(el => {
-                                   
+
                                     if (el.nodeType == 1) {
-                                        if (el.classList.contains("heroes-ico-archive")){
+                                        if (el.classList.contains("heroes-ico-archive")) {
                                             el.remove()
                                         }
                                     }
@@ -91,20 +120,16 @@ export function deleteFavoriteLinks() {
     observer.observe(targetNode, conf)
 }
 
-export const config: PlasmoCSConfig = {
-    matches: ["https://pamyat-naroda.ru/*"]
-}
-
 export function waitAndDeleteElement(selector) {
     const interval = setInterval(() => {
-      const element = document.querySelector(selector);
-      if (element) {
-        clearInterval(interval);
-        element.remove();
-      }
+        const element = document.querySelector(selector);
+        if (element) {
+            clearInterval(interval);
+            element.remove();
+        }
     }, 100); // Проверка каждые 100 мс
-  }
-  
+}
+
 export function deleteFooter() {
     let el = document.querySelectorAll("div.footer-wrap-list")
     el.forEach(el => el.remove())

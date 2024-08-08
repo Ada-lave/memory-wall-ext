@@ -1,7 +1,7 @@
 import type { PlasmoCSConfig } from "plasmo"
 import TimerSetting from "~config/timerSetting"
 import { addOurLinkForGoHome } from "~utils/addElements"
-import deleteUnusedELements, { deleteFavoriteLinks, deleteFooter, deleteHeader, deleteHeroCardActionPanel, deleteReportButton, deleteSidebar, deleteUnusedNavagationLinks, waitAndDeleteElement } from "~utils/deleteElements"
+import deleteUnusedELements, { deleteFavoriteButton, deleteFavoriteLinks, deleteFooter, deleteHeader, deleteHeroCardActionPanel, deleteReportButton, deleteSidebar, deleteUnusedNavagationLinks, deleteVideoBanner, waitAndDeleteElement } from "~utils/deleteElements"
 import Timer from "~utils/timer"
 
 export {}
@@ -44,6 +44,8 @@ deleteUnusedNavagationLinks()
 deleteHeroCardActionPanel()
 deleteReportButton()
 deleteHeader()
+deleteFavoriteButton()
+deleteVideoBanner()
 deleteSidebar()
 deleteFooter()
 deleteFavoriteLinks()
