@@ -19,3 +19,7 @@
     cursor: pointer;
     min-height: 4vh;
 }
+
+* {
+    user-select: none;
+}
